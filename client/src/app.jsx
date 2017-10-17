@@ -1,15 +1,62 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { browserHistory, Router } from 'react-router';
-import routes from './routes.js';
+import React, { Component } from 'react';
+import Modal from './components/modal.jsx';
 
-// remove tap delay, essential for MaterialUI to work properly
-injectTapEventPlugin();
 
-ReactDom.render((
-  <MuiThemeProvider muiTheme={getMuiTheme()}>
-    <Router history={browserHistory} routes={routes} />
-  </MuiThemeProvider>), document.getElementById('react-app'));
+
+
+
+// modal js
+
+
+  class App extends Component {
+  	constructor() {
+  		super();
+
+  		this.state = {
+  			show_modal: false,
+  			modalInfo: [
+  				{imgSrc: "/01.jpg", text: 'asdf'},
+  				{imgSrc: "/02.jpg", text: 'asdfasdfasdf'}
+  			],
+  			currentModalIndex: 0
+  		}
+  	}
+
+  	showModal() {
+  		this.setState({
+  			show_modal: true
+  		});
+  	}
+
+
+  	closeModal() {
+  		this.setState({ show_modal: false });
+  	}
+
+  	render() {
+  		return(
+  			<div>
+  				{this.state.show_modal ? (<div className="overlay"></div>) : ''}
+
+
+  				{this.state.show_modal ? (
+  					<Modal
+  						closeModal={this.closeModal.bind(this)}
+  					/>
+  				) : ''}
+
+  				<button onClick={() => this.showModal()}>checkin</button>
+  			</div>
+  		)
+  	}
+  }
+
+  export default App
+
+
+
+  // render((
+  // 	<Router>
+  // 		<App />
+  // 	</Router>
+  // ), document.getElementById('app'));

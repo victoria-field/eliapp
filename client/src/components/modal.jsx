@@ -46,8 +46,8 @@ class Modal extends Component {
 		return(
 			<div className="modal">
 				<h3>Time to Relax</h3>
-				
-				{!this.state.start ? 
+
+				{!this.state.start ?
 					<div className="column">
 						<p>How are you feeling?</p>
 						<div className="row x-center">
@@ -62,7 +62,7 @@ class Modal extends Component {
 						<button onClick={this.nextImage.bind(this)}>Next Image</button>
 					</div>
 				)}
-				<button onClick={this.props.closeModal}>Close</button>			
+				<button onClick={this.props.closeModal}>Close</button>
 			</div>
 		)
 	}

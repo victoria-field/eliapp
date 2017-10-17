@@ -1,6 +1,7 @@
 import React from 'react';
 import Auth from '../modules/Auth';
 import Dashboard from '../components/Dashboard.jsx';
+import App from "../app.jsx"
 
 
 class DashboardPage extends React.Component {
@@ -40,7 +41,12 @@ class DashboardPage extends React.Component {
    * Render the component.
    */
   render() {
-    return (<Dashboard secretData={this.state.secretData} />);
+
+    return (
+      <div>
+        <Dashboard secretData={this.state.secretData} />
+        <App/>
+      </div>);
   }
 
 }

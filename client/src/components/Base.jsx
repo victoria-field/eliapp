@@ -7,7 +7,7 @@ const Base = ({ children }) => (
   <div>
     <div className="top-bar">
       <div className="top-bar-left">
-        <IndexLink to="/">React App</IndexLink>
+        <IndexLink to="/">Eli's App</IndexLink>
       </div>
 
       {Auth.isUserAuthenticated() ? (
@@ -28,9 +28,9 @@ const Base = ({ children }) => (
 
   </div>
 );
-
-Base.propTypes = {
-  children: PropTypes.object.isRequired
-};
+// 
+// Base.propTypes = {
+//   children: PropTypes.object.isRequired
+// };
 
 export default Base;
